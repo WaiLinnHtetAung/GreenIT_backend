@@ -7,4 +7,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin'], 
 
     //promotion
     Route::resource('promotions', 'PromotionsController');
+
+    //Email
+    Route::post('sendEmail', 'EmailController@sendEmail')->name('sendEmail');
 });

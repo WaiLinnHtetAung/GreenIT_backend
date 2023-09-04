@@ -27,6 +27,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Promotion
     Route::resource('promotions', 'PromotionsController');
+
+    // Route::get('email', function() {
+    //     $mailData = [
+    //         'firstName' => 'Aung',
+    //         'lastName'  => 'Aung',
+    //         'company'   => 'greenIT',
+    //         'email'     => 'greenit@gmail.com',
+    //         'phone'     => '099734343443',
+    //         'subject'   => 'Server Service',
+    //         'message'   => 'about server',
+    //     ];
+    //     return view('admin.email.consultation', compact('mailData'));
+    // });
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

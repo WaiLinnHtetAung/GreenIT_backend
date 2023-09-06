@@ -22,7 +22,7 @@ class EmailController extends Controller
             'message'   => $data['message'],
         ];
 
-        Mail::to('webservices@itgatewaymm.com')->send(new consultationEmail($mailData));
+        Mail::to('info@greenitmm.com')->send(new consultationEmail($mailData));
 
         return response()->json(['msg' => 'Message is send successfully']);
     }

@@ -50,7 +50,7 @@
                 <h2>Green IT</h2>
             </div>
             <div class="logo">
-                <img src="{{ url('images/logo.png') }}" alt="">
+                <img src="{{ url('public/images/logo.png') }}" alt="">
             </div>
         </div>
 

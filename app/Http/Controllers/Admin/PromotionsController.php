@@ -86,14 +86,22 @@ class PromotionsController extends Controller
      */
     public function update(UpdatePermissionsRequest $request, Promotion $promotion)
     {
+
         $promotion->update($request->all());
 
         if($request->hasfile('image')) {
-            foreach($promotion->media as $media) {
+            foreach($promotion->getMedia('promotion_image') as $media) {
                 $media->delete();
             }
 
-            $promotion->addMedia($request->file('image'))->toMediaCollection('promotion');
+            $promotion->addMedia($request->file('image'))->toMediaCollection('promotion_image');
+        }
+
+        if($request->hasfile('logo')) {
+            foreach($promotion->getMedia('promotion_logo') as $media) {
+                $media->delete();
+            }
+            $promotion->addMedia($request->file('logo'))->toMediaCollection('promotion_logo');
         }
 
         return redirect()->route('admin.promotions.index');

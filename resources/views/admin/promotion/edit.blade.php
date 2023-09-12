@@ -20,10 +20,18 @@
                 </div>
                 <div class="form-group col-lg-4 col-md-6 col-sm-12 mb-4">
                     <label class="required" for="image">{{ trans('cruds.promotion.fields.image') }}</label>
-                    <input class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}" type="file" name="image" id="image" value="{{ 'image',$promotion->media[0]->file_name}}"  >
-                    <img class="float-end mt-1" src="{{ $promotion->media? $promotion->media[0]->getUrl() : '' }}" width="90px" height="90px" alt="">
+                    <input class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}" type="file" name="image" id="image" value="{{ $promotion->getMedia('promotion_image')[0]->file_name}}"  >
+                    <img class="float-end mt-1" src="{{ $promotion->media? $promotion->getMedia('promotion_image')[0]->getUrl() : '' }}" width="90px" height="90px" alt="">
                     @if($errors->has('image'))
                         <span class="text-danger">{{ $errors->first('image') }}</span>
+                    @endif
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <label class="required" for="logo">{{ trans('cruds.promotion.fields.logo') }}</label>
+                    <input class="form-control {{ $errors->has('logo') ? 'is-invalid' : '' }}" type="file" name="logo" id="logo" value="{{ $promotion->getMedia('promotion_logo')[0]->file_name }}" >
+                    <img class="float-end mt-1" src="{{ $promotion->media? $promotion->getMedia('promotion_logo')[0]->getUrl() : '' }}" width="90px" height="90px" alt="">
+                    @if($errors->has('logo'))
+                        <span class="text-danger">{{ $errors->first('logo') }}</span>
                     @endif
                 </div>
                 <div class="form-group col-lg-8 col-md-8 col-sm-12 mb-4">

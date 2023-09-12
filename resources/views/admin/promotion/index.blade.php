@@ -50,17 +50,13 @@
                                 {{ $promotion->title ?? '' }}
                             </td>
                             <td>
-                                @foreach ($promotion->media as $media)
-                                    @if($media->collection_name == "promotion_image")
-                                        <img src="{{ $media? $media->getUrl() : '' }}" width="60px" height="60px" alt="">
-                                    @endif
+                                @foreach ($promotion->getMedia('promotion_image') as $media)
+                                    <img src="{{ $media? $media->getUrl() : '' }}" width="60px" height="60px" alt="">
                                 @endforeach
                             </td>
                             <td>
-                                @foreach ($promotion->media as $media)
-                                    @if($media->collection_name == "promotion_logo")
-                                        <img src="{{ $media? $media->getUrl() : '' }}" width="60px" height="60px" alt="">
-                                    @endif
+                                @foreach ($promotion->getMedia('promotion_logo') as $media)
+                                    <img src="{{ $media? $media->getUrl() : '' }}" width="60px" height="60px" alt="">
                                 @endforeach
                             </td>
                             <td>

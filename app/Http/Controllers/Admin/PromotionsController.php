@@ -93,7 +93,6 @@ class PromotionsController extends Controller
             foreach($promotion->getMedia('promotion_image') as $media) {
                 $media->delete();
             }
-
             $promotion->addMedia($request->file('image'))->toMediaCollection('promotion_image');
         }
 

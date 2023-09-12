@@ -38,6 +38,7 @@ class PromotionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(StorePromotionsRequest $request)
     {
         $promotion = Promotion::create($request->all());

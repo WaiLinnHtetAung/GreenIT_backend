@@ -72,6 +72,7 @@ return [
             'no'        => 'No',
             'title'     => 'Title',
             'image'     => 'Image',
+            'logo'     => 'Logo',
             'content'   => 'Content'
         ]
     ]

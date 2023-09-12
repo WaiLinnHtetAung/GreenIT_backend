@@ -16,8 +16,18 @@ class PromotionsController extends Controller
     public function index()
     {
         $promotions = Promotion::all();
+        // foreach($promotions as $promotion) {
+        //     $promotion['img_url'] = $promotion->media[0]->getUrl();
+        // }
+
         foreach($promotions as $promotion) {
-            $promotion['img_url'] = $promotion->media[0]->getUrl();
+            foreach($promotion->media as $media) {
+                if($media->collection_name == 'promotion_image') {
+                    $promotion['img_url'] = $media->getUrl();
+                } else {
+                    $promotion['logo_url'] = $media->getUrl();
+                }
+            }
         }
 
         return response()->json([

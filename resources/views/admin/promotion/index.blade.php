@@ -30,6 +30,9 @@
                             {{ trans('cruds.promotion.fields.image') }}
                         </th>
                         <th>
+                            {{ trans('cruds.promotion.fields.logo') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.promotion.fields.content') }}
                         </th>
                         <th>
@@ -47,7 +50,18 @@
                                 {{ $promotion->title ?? '' }}
                             </td>
                             <td>
-                                <img src="{{ $promotion->media? $promotion->media[0]->getUrl() : '' }}" width="60px" height="60px" alt="">
+                                @foreach ($promotion->media as $media)
+                                    @if($media->collection_name == "promotion_image")
+                                        <img src="{{ $media? $media->getUrl() : '' }}" width="60px" height="60px" alt="">
+                                    @endif
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($promotion->media as $media)
+                                    @if($media->collection_name == "promotion_logo")
+                                        <img src="{{ $media? $media->getUrl() : '' }}" width="60px" height="60px" alt="">
+                                    @endif
+                                @endforeach
                             </td>
                             <td>
                                 {!! $promotion->content ?? '' !!}

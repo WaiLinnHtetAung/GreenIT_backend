@@ -24,6 +24,13 @@
                         <span class="text-danger">{{ $errors->first('image') }}</span>
                     @endif
                 </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <label class="required" for="logo">{{ trans('cruds.promotion.fields.logo') }}</label>
+                    <input class="form-control {{ $errors->has('logo') ? 'is-invalid' : '' }}" type="file" name="logo" id="logo" value="{{ old('logo') }}"  required>
+                    @if($errors->has('logo'))
+                        <span class="text-danger">{{ $errors->first('logo') }}</span>
+                    @endif
+                </div>
                 <div class="form-group col-lg-8 col-md-8 col-sm-12 mb-4">
                     <label class="required" for="content">{{ trans('cruds.promotion.fields.content') }}</label>
                     <textarea name="content" id="" cols="30" rows="10" class="cke-editor" >{{ old('content', '') }}</textarea>

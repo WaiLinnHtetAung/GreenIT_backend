@@ -18,6 +18,7 @@ class PromotionsController extends Controller
     public function index()
     {
         $promotions = Promotion::with('media')->get();
+
         return view('admin.promotion.index', compact('promotions'));
     }
 
@@ -39,11 +40,12 @@ class PromotionsController extends Controller
      */
     public function store(StorePromotionsRequest $request)
     {
-        // return $request->all();
         $promotion = Promotion::create($request->all());
         $img_name = $request->file('image');
+        $logo_name = $request->file('logo');
 
-        $promotion->addMedia($img_name)->toMediaCollection('promotion');
+        $promotion->addMedia($img_name)->toMediaCollection('promotion_image');
+        $promotion->addMedia($logo_name)->toMediaCollection('promotion_logo');
 
         return redirect()->route('admin.promotions.index');
     }

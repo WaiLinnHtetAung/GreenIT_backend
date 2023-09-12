@@ -30,6 +30,9 @@ class StorePromotionsRequest extends FormRequest
             'image' => [
                 'required'
             ],
+            'logo' => [
+                'required'
+            ],
             'content' => [
                 'required'
             ]

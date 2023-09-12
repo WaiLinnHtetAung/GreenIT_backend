@@ -104,8 +104,6 @@ class PromotionsController extends Controller
         }
 
         return redirect()->route('admin.promotions.index');
-
-
     }
 
     /**
